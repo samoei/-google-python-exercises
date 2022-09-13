@@ -29,6 +29,11 @@ def test(got, expected):
     print(f"{prefix} got: {got} expected: {expected}")
 
 
+def fix_start(s):
+    new_str = s[1:]
+    return s[0] + new_str.replace(s[0], "*")
+
+
 def main():
     print("running donuts tests...")
     test(donuts(4), "Number of donuts: 4")
@@ -37,11 +42,18 @@ def main():
     test(donuts(99), 'Number of donuts: many')
 
     print()
-    print("running both ends tests...")
+    print("running both_ends() tests...")
     test(both_ends('spring'), 'spng')
     test(both_ends('Hello'), 'Helo')
     test(both_ends('a'), '')
     test(both_ends('xyz'), 'xyyz')
+
+    print()
+    print("running fix_start() tests...")
+    test(fix_start('babble'), 'ba**le')
+    test(fix_start('aardvark'), 'a*rdv*rk')
+    test(fix_start('google'), 'goo*le')
+    test(fix_start('donut'), 'donut')
 
 
 if __name__ == "__main__":
