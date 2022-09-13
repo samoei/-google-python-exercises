@@ -34,6 +34,10 @@ def fix_start(s):
     return s[0] + new_str.replace(s[0], "*")
 
 
+def mix_up(a, b):
+    return f"{b[:2]+a[2:]} {a[:2]+b[2:]}"
+
+
 def main():
     print("running donuts tests...")
     test(donuts(4), "Number of donuts: 4")
@@ -54,6 +58,13 @@ def main():
     test(fix_start('aardvark'), 'a*rdv*rk')
     test(fix_start('google'), 'goo*le')
     test(fix_start('donut'), 'donut')
+
+    print()
+    print("running mix_up() tests...")
+    test(mix_up('mix', 'pod'), 'pox mid')
+    test(mix_up('dog', 'dinner'), 'dig donner')
+    test(mix_up('gnash', 'sport'), 'spash gnort')
+    test(mix_up('pezzy', 'firm'), 'fizzy perm')
 
 
 if __name__ == "__main__":
