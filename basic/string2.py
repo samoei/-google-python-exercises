@@ -1,6 +1,6 @@
 #!/usr/bin/python -tt
 """
-Copyright (c) <year>, Phil Samoei
+Copyright (c) 2022, Phil Samoei
 All rights reserved.
 
 This source code is licensed under the BSD-style license found in the
