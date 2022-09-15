@@ -16,6 +16,7 @@ def match_ends(words):
             count += 1
     return count
 
+
 def front_x(words):
     list_1 = []
     list_2 = []
@@ -26,20 +27,27 @@ def front_x(words):
         else:
             list_2.append(word)
 
-    return sorted(list_1)+sorted(list_2)
+    return sorted(list_1) + sorted(list_2)
+
+
+def sort_last(tuples):
+    return sorted(tuples, key=lambda item: item[-1])
+
 
 def test(got, expected):
     if got == expected:
         prefix = "PASSED "
     else:
-        prefix ="FAILED"
+        prefix = "FAILED"
     print(f"TEST {prefix} | Expected: {expected}, Got: {got}")
+
 
 def main():
     print('Testing match_ends')
     test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb']), 3)
     test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
     test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
+
     print()
     print("Testing front_x")
     print('match_ends')
@@ -49,6 +57,17 @@ def main():
          ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
     test(front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']),
          ['xanadu', 'xyz', 'aardvark', 'apple', 'mix'])
+
+    print()
+    print("Testing sort_last")
+    test(sort_last(
+        [(1, 3), (3, 2), (2, 1)]),
+         [(2, 1), (3, 2), (1, 3)]
+    )
+    test(sort_last([(2, 3), (1, 2), (3, 1)]),
+         [(3, 1), (1, 2), (2, 3)])
+    test(sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)]),
+         [(2, 2), (1, 3), (3, 4, 5), (1, 7)])
 
 
 if __name__ == "__main__":
