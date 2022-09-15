@@ -34,7 +34,14 @@ def sort_last(tuples):
     return sorted(tuples, key=lambda item: item[-1])
 
 
+# Nested list of student's info in a Science Olympiad
+# List elements: (Student's Name, Marks out of 100 , Age)
 def sort_participants(partcipants):
+    """
+    Sorts with multiple keys by returning tuple instead of a number.
+    :param partcipants: (Student's Name, Marks out of 100 , Age)
+    :return: Sorted (Student's Name, Marks out of 100 , Age)
+    """
     return sorted(partcipants, key=lambda item: (100-item[1], item[-1]))
 
 def test(got, expected):
