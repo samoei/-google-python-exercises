@@ -34,6 +34,9 @@ def sort_last(tuples):
     return sorted(tuples, key=lambda item: item[-1])
 
 
+def sort_participants(partcipants):
+    return sorted(partcipants, key=lambda item: (100-item[1], item[-1]))
+
 def test(got, expected):
     if got == expected:
         prefix = "PASSED "
@@ -68,6 +71,20 @@ def main():
          [(3, 1), (1, 2), (2, 3)])
     test(sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)]),
          [(2, 2), (1, 3), (3, 4, 5), (1, 7)])
+
+    test(
+        sort_participants(
+            [
+                ('Alison', 50, 18),
+                ('Terence', 75, 12),
+                ('David', 75, 20),
+                ('Jimmy', 90, 22),
+                ('John', 45, 12)
+            ]
+        ),
+        [('Jimmy', 90, 22), ('Terence', 75, 12), ('David', 75, 20), ('Alison', 50, 18), ('John', 45, 12)]
+
+    )
 
 
 if __name__ == "__main__":
